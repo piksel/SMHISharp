@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SMHISharp_Example
+namespace Piksel.SMHISharp.Example
 {
     static class Program
     {

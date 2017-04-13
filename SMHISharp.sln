@@ -5,7 +5,9 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMHISharp Example", "SMHISharp Example\SMHISharp Example.csproj", "{E838CEBE-45E9-4ADE-8901-27C821AE0DA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Piksel.SMHISharp", "Piksel.SMHISharp\Piksel.SMHISharp.csproj", "{4B932F5C-F89D-48B0-ABBE-822B69CBB993}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMHISharp", "SMHISharp\SMHISharp.csproj", "{EFDDF765-46A3-4CB6-920E-92B9E66045CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Piksel.Controls.TabWizard", "libs\TabWizardControl\Piksel.Controls.TabWizard\Piksel.Controls.TabWizard.csproj", "{D5C46338-FEE5-4F00-BBC7-2855A180A339}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,14 @@ Global
 		{E838CEBE-45E9-4ADE-8901-27C821AE0DA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E838CEBE-45E9-4ADE-8901-27C821AE0DA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E838CEBE-45E9-4ADE-8901-27C821AE0DA7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4B932F5C-F89D-48B0-ABBE-822B69CBB993}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4B932F5C-F89D-48B0-ABBE-822B69CBB993}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4B932F5C-F89D-48B0-ABBE-822B69CBB993}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4B932F5C-F89D-48B0-ABBE-822B69CBB993}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFDDF765-46A3-4CB6-920E-92B9E66045CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFDDF765-46A3-4CB6-920E-92B9E66045CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFDDF765-46A3-4CB6-920E-92B9E66045CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFDDF765-46A3-4CB6-920E-92B9E66045CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5C46338-FEE5-4F00-BBC7-2855A180A339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5C46338-FEE5-4F00-BBC7-2855A180A339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5C46338-FEE5-4F00-BBC7-2855A180A339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5C46338-FEE5-4F00-BBC7-2855A180A339}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
