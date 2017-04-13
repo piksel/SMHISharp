@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SMHISharp_Example
 {
-    public partial class Form1 : Form
+    public partial class FormSMHISharpExample : Form
     {
-        public Form1()
+        public FormSMHISharpExample()
         {
             InitializeComponent();
         }

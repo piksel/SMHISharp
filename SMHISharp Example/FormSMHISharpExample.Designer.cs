@@ -1,6 +1,6 @@
 ﻿namespace SMHISharp_Example
 {
-    partial class Form1
+    partial class FormSMHISharpExample
     {
         /// <summary>
         /// Required designer variable.
