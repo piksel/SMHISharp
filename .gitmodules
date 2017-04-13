@@ -1,0 +1,3 @@
+[submodule "libs/TabWizardControl"]
+	path = libs/TabWizardControl
+	url = https://github.com/piksel/TabWizardControl
