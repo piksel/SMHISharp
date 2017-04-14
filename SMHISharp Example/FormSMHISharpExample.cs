@@ -22,8 +22,6 @@ namespace Piksel.SMHISharp.Example
 
             _smhi = new ApiClient();
 
-            //wizard.SelectedIndex = wizard.TabCount - 1;
-
             wizard.PageDisplayed(tpParameters, (prev) =>
             {
                 if (!prev)
@@ -81,7 +79,7 @@ namespace Piksel.SMHISharp.Example
                 }
             });
 
-            //wizard.NextFunction(tpPeriods, () => olvPeriods.SelectedIndex != -1);
+            wizard.NextFunction(tpPeriods, () => olvPeriods.SelectedIndex != -1);
 
             wizard.PageDisplayed(tpData, (prev) =>
             {

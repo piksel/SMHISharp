@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.bPrevious = new System.Windows.Forms.Button();
             this.bNext = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbContainer = new System.Windows.Forms.GroupBox();
             this.wizard = new Piksel.Controls.TabWizard.TabWizardControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tpIntro = new System.Windows.Forms.TabPage();
+            this.lIntro = new System.Windows.Forms.Label();
             this.tpParameters = new System.Windows.Forms.TabPage();
             this.olvParameters = new BrightIdeasSoftware.ObjectListView();
             this.olvColumn1 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -46,22 +46,22 @@
             this.olvColumn6 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumn8 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.tpData = new System.Windows.Forms.TabPage();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.pbParameters = new System.Windows.Forms.ProgressBar();
             this.pLoadParameters = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lParameters = new System.Windows.Forms.Label();
             this.pLoadStations = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.lStations = new System.Windows.Forms.Label();
+            this.pbStations = new System.Windows.Forms.ProgressBar();
             this.pLoadPeriods = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.progressBar3 = new System.Windows.Forms.ProgressBar();
+            this.lPeriods = new System.Windows.Forms.Label();
+            this.pbPeriods = new System.Windows.Forms.ProgressBar();
             this.pLoadData = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.progressBar4 = new System.Windows.Forms.ProgressBar();
+            this.lData = new System.Windows.Forms.Label();
+            this.pbData = new System.Windows.Forms.ProgressBar();
             this.chartData = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.scStations = new System.Windows.Forms.SplitContainer();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lLatitude = new System.Windows.Forms.Label();
+            this.lLongitude = new System.Windows.Forms.Label();
             this.tbLatitude = new System.Windows.Forms.TextBox();
             this.bFindNearest = new System.Windows.Forms.Button();
             this.tbLongitude = new System.Windows.Forms.TextBox();
@@ -70,9 +70,9 @@
             this.olvColumn4 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumn5 = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.cbExcludeOld = new System.Windows.Forms.CheckBox();
-            this.groupBox1.SuspendLayout();
+            this.gbContainer.SuspendLayout();
             this.wizard.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tpIntro.SuspendLayout();
             this.tpParameters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olvParameters)).BeginInit();
             this.tpStations.SuspendLayout();
@@ -111,23 +111,23 @@
             this.bNext.Text = "&Next";
             this.bNext.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // gbContainer
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gbContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.groupBox1.Controls.Add(this.wizard);
-            this.groupBox1.Location = new System.Drawing.Point(0, -6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(686, 406);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
+            this.gbContainer.BackColor = System.Drawing.SystemColors.Window;
+            this.gbContainer.Controls.Add(this.wizard);
+            this.gbContainer.Location = new System.Drawing.Point(0, -6);
+            this.gbContainer.Name = "gbContainer";
+            this.gbContainer.Size = new System.Drawing.Size(686, 406);
+            this.gbContainer.TabIndex = 5;
+            this.gbContainer.TabStop = false;
             // 
             // wizard
             // 
             this.wizard.Alignment = System.Windows.Forms.TabAlignment.Bottom;
-            this.wizard.Controls.Add(this.tabPage1);
+            this.wizard.Controls.Add(this.tpIntro);
             this.wizard.Controls.Add(this.tpParameters);
             this.wizard.Controls.Add(this.tpStations);
             this.wizard.Controls.Add(this.tpPeriods);
@@ -144,25 +144,25 @@
             this.wizard.Text = null;
             this.wizard.LastButtonClicked += new System.EventHandler(this.wizard_LastButtonClicked);
             // 
-            // tabPage1
+            // tpIntro
             // 
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(676, 364);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Intro";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tpIntro.Controls.Add(this.lIntro);
+            this.tpIntro.Location = new System.Drawing.Point(4, 22);
+            this.tpIntro.Name = "tpIntro";
+            this.tpIntro.Padding = new System.Windows.Forms.Padding(3);
+            this.tpIntro.Size = new System.Drawing.Size(672, 361);
+            this.tpIntro.TabIndex = 0;
+            this.tpIntro.Text = "Intro";
+            this.tpIntro.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lIntro
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Click \"Next\" to get parameters";
+            this.lIntro.AutoSize = true;
+            this.lIntro.Location = new System.Drawing.Point(17, 22);
+            this.lIntro.Name = "lIntro";
+            this.lIntro.Size = new System.Drawing.Size(150, 13);
+            this.lIntro.TabIndex = 0;
+            this.lIntro.Text = "Click \"Next\" to get parameters";
             // 
             // tpParameters
             // 
@@ -274,141 +274,141 @@
             this.tpData.TabIndex = 4;
             this.tpData.Text = "Data";
             // 
-            // progressBar1
+            // pbParameters
             // 
-            this.progressBar1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.progressBar1.Location = new System.Drawing.Point(227, 144);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(213, 36);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar1.TabIndex = 1;
+            this.pbParameters.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbParameters.Location = new System.Drawing.Point(227, 144);
+            this.pbParameters.Name = "pbParameters";
+            this.pbParameters.Size = new System.Drawing.Size(213, 36);
+            this.pbParameters.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.pbParameters.TabIndex = 1;
             // 
             // pLoadParameters
             // 
-            this.pLoadParameters.Controls.Add(this.label2);
-            this.pLoadParameters.Controls.Add(this.progressBar1);
+            this.pLoadParameters.Controls.Add(this.lParameters);
+            this.pLoadParameters.Controls.Add(this.pbParameters);
             this.pLoadParameters.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pLoadParameters.Location = new System.Drawing.Point(3, 3);
             this.pLoadParameters.Name = "pLoadParameters";
             this.pLoadParameters.Size = new System.Drawing.Size(666, 355);
             this.pLoadParameters.TabIndex = 1;
             // 
-            // label2
+            // lParameters
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.Location = new System.Drawing.Point(4, 183);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(659, 23);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Getting parameters...";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lParameters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lParameters.Location = new System.Drawing.Point(4, 183);
+            this.lParameters.Name = "lParameters";
+            this.lParameters.Size = new System.Drawing.Size(659, 23);
+            this.lParameters.TabIndex = 2;
+            this.lParameters.Text = "Getting parameters...";
+            this.lParameters.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pLoadStations
             // 
-            this.pLoadStations.Controls.Add(this.label3);
-            this.pLoadStations.Controls.Add(this.progressBar2);
+            this.pLoadStations.Controls.Add(this.lStations);
+            this.pLoadStations.Controls.Add(this.pbStations);
             this.pLoadStations.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pLoadStations.Location = new System.Drawing.Point(3, 3);
             this.pLoadStations.Name = "pLoadStations";
             this.pLoadStations.Size = new System.Drawing.Size(666, 355);
             this.pLoadStations.TabIndex = 3;
             // 
-            // label3
+            // lStations
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.Location = new System.Drawing.Point(4, 183);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(659, 23);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Getting stations...";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lStations.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lStations.Location = new System.Drawing.Point(4, 183);
+            this.lStations.Name = "lStations";
+            this.lStations.Size = new System.Drawing.Size(659, 23);
+            this.lStations.TabIndex = 2;
+            this.lStations.Text = "Getting stations...";
+            this.lStations.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // progressBar2
+            // pbStations
             // 
-            this.progressBar2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.progressBar2.Location = new System.Drawing.Point(227, 144);
-            this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(213, 36);
-            this.progressBar2.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar2.TabIndex = 1;
+            this.pbStations.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbStations.Location = new System.Drawing.Point(227, 144);
+            this.pbStations.Name = "pbStations";
+            this.pbStations.Size = new System.Drawing.Size(213, 36);
+            this.pbStations.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.pbStations.TabIndex = 1;
             // 
             // pLoadPeriods
             // 
-            this.pLoadPeriods.Controls.Add(this.label4);
-            this.pLoadPeriods.Controls.Add(this.progressBar3);
+            this.pLoadPeriods.Controls.Add(this.lPeriods);
+            this.pLoadPeriods.Controls.Add(this.pbPeriods);
             this.pLoadPeriods.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pLoadPeriods.Location = new System.Drawing.Point(3, 3);
             this.pLoadPeriods.Name = "pLoadPeriods";
             this.pLoadPeriods.Size = new System.Drawing.Size(666, 355);
             this.pLoadPeriods.TabIndex = 4;
             // 
-            // label4
+            // lPeriods
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.Location = new System.Drawing.Point(4, 183);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(659, 23);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Getting periods...";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lPeriods.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lPeriods.Location = new System.Drawing.Point(4, 183);
+            this.lPeriods.Name = "lPeriods";
+            this.lPeriods.Size = new System.Drawing.Size(659, 23);
+            this.lPeriods.TabIndex = 2;
+            this.lPeriods.Text = "Getting periods...";
+            this.lPeriods.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // progressBar3
+            // pbPeriods
             // 
-            this.progressBar3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.progressBar3.Location = new System.Drawing.Point(227, 144);
-            this.progressBar3.Name = "progressBar3";
-            this.progressBar3.Size = new System.Drawing.Size(213, 36);
-            this.progressBar3.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar3.TabIndex = 1;
+            this.pbPeriods.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbPeriods.Location = new System.Drawing.Point(227, 144);
+            this.pbPeriods.Name = "pbPeriods";
+            this.pbPeriods.Size = new System.Drawing.Size(213, 36);
+            this.pbPeriods.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.pbPeriods.TabIndex = 1;
             // 
             // pLoadData
             // 
-            this.pLoadData.Controls.Add(this.label5);
-            this.pLoadData.Controls.Add(this.progressBar4);
+            this.pLoadData.Controls.Add(this.lData);
+            this.pLoadData.Controls.Add(this.pbData);
             this.pLoadData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pLoadData.Location = new System.Drawing.Point(3, 3);
             this.pLoadData.Name = "pLoadData";
             this.pLoadData.Size = new System.Drawing.Size(666, 355);
             this.pLoadData.TabIndex = 5;
             // 
-            // label5
+            // lData
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.Location = new System.Drawing.Point(4, 183);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(659, 23);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Getting data...";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lData.Location = new System.Drawing.Point(4, 183);
+            this.lData.Name = "lData";
+            this.lData.Size = new System.Drawing.Size(659, 23);
+            this.lData.TabIndex = 2;
+            this.lData.Text = "Getting data...";
+            this.lData.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // progressBar4
+            // pbData
             // 
-            this.progressBar4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.progressBar4.Location = new System.Drawing.Point(227, 144);
-            this.progressBar4.Name = "progressBar4";
-            this.progressBar4.Size = new System.Drawing.Size(213, 36);
-            this.progressBar4.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar4.TabIndex = 1;
+            this.pbData.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbData.Location = new System.Drawing.Point(227, 144);
+            this.pbData.Name = "pbData";
+            this.pbData.Size = new System.Drawing.Size(213, 36);
+            this.pbData.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.pbData.TabIndex = 1;
             // 
             // chartData
             // 
             this.chartData.BackColor = System.Drawing.SystemColors.Window;
-            chartArea5.Name = "ChartArea1";
-            this.chartData.ChartAreas.Add(chartArea5);
+            chartArea2.Name = "ChartArea1";
+            this.chartData.ChartAreas.Add(chartArea2);
             this.chartData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartData.Location = new System.Drawing.Point(3, 3);
             this.chartData.Name = "chartData";
-            series5.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series5.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.BackwardDiagonal;
-            series5.BackSecondaryColor = System.Drawing.SystemColors.GradientActiveCaption;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Color = System.Drawing.SystemColors.HotTrack;
-            series5.IsVisibleInLegend = false;
-            series5.MarkerBorderColor = System.Drawing.SystemColors.HotTrack;
-            series5.MarkerColor = System.Drawing.SystemColors.Highlight;
-            series5.Name = "Series1";
-            this.chartData.Series.Add(series5);
+            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series2.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.BackwardDiagonal;
+            series2.BackSecondaryColor = System.Drawing.SystemColors.GradientActiveCaption;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.SystemColors.HotTrack;
+            series2.IsVisibleInLegend = false;
+            series2.MarkerBorderColor = System.Drawing.SystemColors.HotTrack;
+            series2.MarkerColor = System.Drawing.SystemColors.Highlight;
+            series2.Name = "Series1";
+            this.chartData.Series.Add(series2);
             this.chartData.Size = new System.Drawing.Size(666, 355);
             this.chartData.TabIndex = 6;
             this.chartData.Text = "chart1";
@@ -425,8 +425,8 @@
             // scStations.Panel1
             // 
             this.scStations.Panel1.Controls.Add(this.cbExcludeOld);
-            this.scStations.Panel1.Controls.Add(this.label7);
-            this.scStations.Panel1.Controls.Add(this.label6);
+            this.scStations.Panel1.Controls.Add(this.lLatitude);
+            this.scStations.Panel1.Controls.Add(this.lLongitude);
             this.scStations.Panel1.Controls.Add(this.tbLatitude);
             this.scStations.Panel1.Controls.Add(this.bFindNearest);
             this.scStations.Panel1.Controls.Add(this.tbLongitude);
@@ -438,23 +438,23 @@
             this.scStations.SplitterDistance = 36;
             this.scStations.TabIndex = 4;
             // 
-            // label7
+            // lLatitude
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(193, 7);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 13);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Latitude:";
+            this.lLatitude.AutoSize = true;
+            this.lLatitude.Location = new System.Drawing.Point(193, 7);
+            this.lLatitude.Name = "lLatitude";
+            this.lLatitude.Size = new System.Drawing.Size(48, 13);
+            this.lLatitude.TabIndex = 4;
+            this.lLatitude.Text = "Latitude:";
             // 
-            // label6
+            // lLongitude
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 7);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Longitude:";
+            this.lLongitude.AutoSize = true;
+            this.lLongitude.Location = new System.Drawing.Point(13, 7);
+            this.lLongitude.Name = "lLongitude";
+            this.lLongitude.Size = new System.Drawing.Size(57, 13);
+            this.lLongitude.TabIndex = 3;
+            this.lLongitude.Text = "Longitude:";
             // 
             // tbLatitude
             // 
@@ -537,7 +537,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 461);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbContainer);
             this.Controls.Add(this.bNext);
             this.Controls.Add(this.bPrevious);
             this.MaximizeBox = false;
@@ -545,10 +545,10 @@
             this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "FormSMHISharpExample";
             this.Text = "SMHISharp Example";
-            this.groupBox1.ResumeLayout(false);
+            this.gbContainer.ResumeLayout(false);
             this.wizard.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tpIntro.ResumeLayout(false);
+            this.tpIntro.PerformLayout();
             this.tpParameters.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.olvParameters)).EndInit();
             this.tpStations.ResumeLayout(false);
@@ -578,32 +578,32 @@
         private BrightIdeasSoftware.OLVColumn olvColumn2;
         private System.Windows.Forms.Button bNext;
         private Controls.TabWizard.TabWizardControl wizard;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tpIntro;
         private System.Windows.Forms.TabPage tpParameters;
         private System.Windows.Forms.TabPage tpStations;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox gbContainer;
+        private System.Windows.Forms.Label lIntro;
         private System.Windows.Forms.TabPage tpPeriods;
         private System.Windows.Forms.TabPage tpData;
         private BrightIdeasSoftware.ObjectListView olvPeriods;
         private BrightIdeasSoftware.OLVColumn olvColumn6;
         private BrightIdeasSoftware.OLVColumn olvColumn8;
         private System.Windows.Forms.Panel pLoadParameters;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label lParameters;
+        private System.Windows.Forms.ProgressBar pbParameters;
         private System.Windows.Forms.Panel pLoadStations;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ProgressBar progressBar2;
+        private System.Windows.Forms.Label lStations;
+        private System.Windows.Forms.ProgressBar pbStations;
         private System.Windows.Forms.Panel pLoadPeriods;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ProgressBar progressBar3;
+        private System.Windows.Forms.Label lPeriods;
+        private System.Windows.Forms.ProgressBar pbPeriods;
         private System.Windows.Forms.Panel pLoadData;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ProgressBar progressBar4;
+        private System.Windows.Forms.Label lData;
+        private System.Windows.Forms.ProgressBar pbData;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartData;
         private System.Windows.Forms.SplitContainer scStations;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lLatitude;
+        private System.Windows.Forms.Label lLongitude;
         private System.Windows.Forms.TextBox tbLatitude;
         private System.Windows.Forms.Button bFindNearest;
         private System.Windows.Forms.TextBox tbLongitude;
