@@ -1,16 +1,18 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Linq;
 
 namespace Piksel.SMHISharp.Structures
 {
-    public abstract class ResultBase
+    public abstract class ResultBase: ObjectBase
     {
-        public string Key { get; set; }
+        
         public DateTimeOffset Updated { get; set; }
         public string Title { get; set; }
-        public string Summary { get; set; }
-        public Link[] Link { get; set; }
+        
+        [JsonProperty("Link")]
+        public Link[] Links { get; set; }
 
-        public Link GetLink(string type) => Link.FirstOrDefault(l => l.Type == type);
+        public Link GetLink(string type) => Links.FirstOrDefault(l => l.Type == type);
     }
 }

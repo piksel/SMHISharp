@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace Piksel.SMHISharp.Structures
 {
     public class VersionResult: ResultBase
     {
-        
-        public Resource[] Resource { get; set; }
+        [JsonProperty("Resource")]
+        public Resource[] Resources { get; set; }
         
     }
 }

@@ -30,7 +30,7 @@ namespace Piksel.SMHISharp
                 var uri = new Uri($"{EntryPoint}/version/{Version}.json");
                 var result = await wc.DownloadDataTaskAsync(uri);
                 var version = await JsonConvert.DeserializeObjectAsync<VersionResult>(Encoding.UTF8.GetString(result), _settings);
-                callback(version.Resource);
+                callback(version.Resources);
             }
         }
 
@@ -40,8 +40,38 @@ namespace Piksel.SMHISharp
             {
                 var uri = new Uri($"{EntryPoint}/version/{Version}/parameter/{parameter}.json");
                 var result = await wc.DownloadDataTaskAsync(uri);
-                var param = await JsonConvert.DeserializeObjectAsync<Parameter>(Encoding.UTF8.GetString(result), _settings);
-                callback(param.Station);
+                var param = await JsonConvert.DeserializeObjectAsync<ParameterResult>(Encoding.UTF8.GetString(result), _settings);
+                callback(param.Stations);
+            }
+        }
+
+        public async void GetPeriods(string parameter, string station, Action<PeriodResult[]> callback)
+        {
+            using (var wc = new WebClient())
+            {
+                var uri = new Uri($"{EntryPoint}/version/{Version}/parameter/{parameter}/station/{station}.json");
+                var result = await wc.DownloadDataTaskAsync(uri);
+                var stat = await JsonConvert.DeserializeObjectAsync<StationResult>(Encoding.UTF8.GetString(result), _settings);
+                callback(stat.Periods);
+            }
+        }
+
+
+        public async void GetData(string parameter, string station, string period, Action<DataPoint[], Exception> callback)
+        {
+            using (var wc = new WebClient())
+            {
+                var uri = new Uri($"{EntryPoint}/version/{Version}/parameter/{parameter}/station/{station}/period/{period}/data.json");
+                try
+                {
+                    var result = await wc.DownloadDataTaskAsync(uri);
+                    var data = await JsonConvert.DeserializeObjectAsync<DataResult>(Encoding.UTF8.GetString(result), _settings);
+                    callback(data.Values, null);
+                }
+                catch (Exception x)
+                {
+                    callback(null, x);
+                }
             }
         }
     }
