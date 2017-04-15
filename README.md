@@ -3,6 +3,11 @@ Library for querying SMHI Open Data API for .NET
 
 ![Example application](https://i.imgur.com/h3dUvYR.png)
 
+## Installation
+
+Install from nuget:  
+```Install-Package SMHISharp```
+
 ## Usage
 
 ```cs
