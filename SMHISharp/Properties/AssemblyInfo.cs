@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SMHISharp")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Library for querying SMHI Open Data API for .NET")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("piksel birworks")]
 [assembly: AssemblyProduct("SMHISharp")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCopyright("Copyright ©  2017, piksel bitworks")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
