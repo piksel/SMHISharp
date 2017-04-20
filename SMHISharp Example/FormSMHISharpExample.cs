@@ -126,27 +126,14 @@ namespace Piksel.SMHISharp.Example
 
         private void bFindNearest_Click(object sender, EventArgs e)
         {
-            var oldThresh = TimeSpan.FromDays(7);
+            TimeSpan? oldThresh = null;
+            if(cbExcludeOld.Checked)
+                oldThresh = TimeSpan.FromDays(7);
 
             double lng, lat;
             if(_stations != null && double.TryParse(tbLongitude.Text, out lng) && double.TryParse(tbLatitude.Text, out lat))
             {
-                Station bestStation = null;
-                double bestDelta = double.MaxValue;
-                double delta = double.MaxValue;
-
-                foreach(var station in _stations)
-                {
-                    if (bestStation == null || (
-                        (delta = (Math.Abs(lng - station.Longitude)+ Math.Abs(lat - station.Latitude))) < bestDelta
-                        && (!cbExcludeOld.Checked || DateTimeOffset.Now - station.Updated < oldThresh)))
-                    {
-                        bestStation = station;
-                        bestDelta = delta;
-                    }
-                }
-
-                olvStations.SelectedObject = bestStation;
+                olvStations.SelectedObject = _stations.GetClosestStation(lng, lat, oldThresh);
                 olvStations.SelectedItem.EnsureVisible();
             }
         }

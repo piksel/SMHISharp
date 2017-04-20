@@ -5,13 +5,17 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using Newtonsoft.Json;
+using System.Globalization;
 
 namespace Piksel.SMHISharp
 {
     public class ApiClient
     {
         const string Version = "1.0";
-        public string EntryPoint { get; set; } = "http://opendata-download-metobs.smhi.se/api";
+        public string EntryObs { get; set; } = "http://opendata-download-metobs.smhi.se/api";
+        public string EntryAnl { get; set; } = "http://opendata-download-metanalys.smhi.se/api";
+
+        static IFormatProvider _floatFormat = new NumberFormatInfo() { NumberDecimalSeparator = ".", NumberDecimalDigits = 4 };
 
         public Dictionary<string, Resource> _resources;
         private JsonSerializerSettings _settings;
@@ -26,7 +30,7 @@ namespace Piksel.SMHISharp
         {
             using (var wc = new WebClient())
             {
-                var uri = new Uri($"{EntryPoint}/version/{Version}.json");
+                var uri = new Uri($"{EntryObs}/version/{Version}.json");
                 var result = await wc.DownloadDataTaskAsync(uri);
                 var version = await JsonConvert.DeserializeObjectAsync<VersionResult>(Encoding.UTF8.GetString(result), _settings);
                 callback(version.Resources);
@@ -37,7 +41,7 @@ namespace Piksel.SMHISharp
         {
             using (var wc = new WebClient())
             {
-                var uri = new Uri($"{EntryPoint}/version/{Version}/parameter/{parameter}.json");
+                var uri = new Uri($"{EntryObs}/version/{Version}/parameter/{parameter}.json");
                 var result = await wc.DownloadDataTaskAsync(uri);
                 var param = await JsonConvert.DeserializeObjectAsync<ParameterResult>(Encoding.UTF8.GetString(result), _settings);
                 callback(param.Stations);
@@ -48,7 +52,7 @@ namespace Piksel.SMHISharp
         {
             using (var wc = new WebClient())
             {
-                var uri = new Uri($"{EntryPoint}/version/{Version}/parameter/{parameter}/station/{station}.json");
+                var uri = new Uri($"{EntryObs}/version/{Version}/parameter/{parameter}/station/{station}.json");
                 var result = await wc.DownloadDataTaskAsync(uri);
                 var stat = await JsonConvert.DeserializeObjectAsync<StationResult>(Encoding.UTF8.GetString(result), _settings);
                 callback(stat.Periods);
@@ -60,12 +64,33 @@ namespace Piksel.SMHISharp
         {
             using (var wc = new WebClient())
             {
-                var uri = new Uri($"{EntryPoint}/version/{Version}/parameter/{parameter}/station/{station}/period/{period}/data.json");
+                var uri = new Uri($"{EntryObs}/version/{Version}/parameter/{parameter}/station/{station}/period/{period}/data.json");
                 try
                 {
                     var result = await wc.DownloadDataTaskAsync(uri);
                     var data = await JsonConvert.DeserializeObjectAsync<DataResult>(Encoding.UTF8.GetString(result), _settings);
                     callback(data.Values, null);
+                }
+                catch (Exception x)
+                {
+                    callback(null, x);
+                }
+            }
+        }
+
+        public async void GetAnalysis(double longitude, double latitude, Action<Analysis, Exception> callback)
+        {
+            var category = "mesan1g";
+            using (var wc = new WebClient())
+            {
+                var lngFmt = longitude.ToString(_floatFormat);
+                var latFmt = latitude.ToString(_floatFormat);
+                var uri = new Uri($"{EntryAnl}/category/{category}/version/{Version}/geotype/point/lon/{lngFmt}/lat/{latFmt}/data.json");
+                try
+                {
+                    var result = await wc.DownloadDataTaskAsync(uri);
+                    var data = await JsonConvert.DeserializeObjectAsync<Analysis>(Encoding.UTF8.GetString(result), _settings);
+                    callback(data, null);
                 }
                 catch (Exception x)
                 {

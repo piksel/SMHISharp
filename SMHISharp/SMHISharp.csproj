@@ -11,7 +11,7 @@
     <AssemblyName>Piksel.SMHISharp</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AssemblyVersion>1.0.17104.17</AssemblyVersion>
+    <AssemblyVersion>1.0.17110.19</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,11 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Structures\Analysis.cs" />
     <Compile Include="ApiClient.cs" />
     <Compile Include="ArrayExtensions.cs" />
     <Compile Include="Structures\Data.cs" />
     <Compile Include="IntDateConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structures\Geometry.cs" />
     <Compile Include="Structures\ObjectBase.cs" />
     <Compile Include="Structures\Parameter.cs" />
     <Compile Include="Structures\Period.cs" />
@@ -60,7 +62,9 @@
     <Compile Include="Structures\Resource.cs" />
     <Compile Include="Structures\ResultBase.cs" />
     <Compile Include="Structures\DataPoint.cs" />
+    <Compile Include="Structures\TimeSeries.cs" />
     <Compile Include="Structures\VersionResult.cs" />
+    <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
