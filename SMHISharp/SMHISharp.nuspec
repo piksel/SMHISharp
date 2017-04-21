@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>SMHISharp</id>
-    <version>1.0.18</version>
+    <version>1.0.20</version>
     <authors>Nils Måsén</authors>
     <owners>piksel bitworks</owners>
     <licenseUrl>https://raw.githubusercontent.com/piksel/SMHISharp/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/piksel/SMHISharp</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Library for querying SMHI Open Data API</description>
-    <releaseNotes>First public release</releaseNotes>
+    <releaseNotes></releaseNotes>
     <copyright>Copyright 2017, piksel bitworks</copyright>
     <tags>API Weather SMHI</tags>
     <dependencies>
