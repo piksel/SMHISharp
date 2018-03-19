@@ -1,9 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Piksel.SMHISharp.Structures
 {
@@ -14,14 +10,15 @@ namespace Piksel.SMHISharp.Structures
         [JsonProperty("Value")]
         public string ValueRaw { get; set; }
 
-        double _value;
-        bool _valueSet;
+        private double _value;
+        private bool _valueSet;
+
         [JsonIgnore]
         public double? Value
         {
             get
             {
-                if(_valueSet || double.TryParse(ValueRaw, out _value))
+                if (_valueSet || double.TryParse(ValueRaw, out _value))
                 {
                     _valueSet = true;
                     return _value;

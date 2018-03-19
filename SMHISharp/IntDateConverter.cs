@@ -1,15 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Piksel.SMHISharp
 {
-    public class IntDateConverter: JsonConverter
+    public class IntDateConverter : JsonConverter
     {
-        static DateTimeOffset Epoch = new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero);
+        private static DateTimeOffset Epoch = new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero);
 
         public override bool CanConvert(Type objectType)
         {
@@ -17,10 +13,19 @@ namespace Piksel.SMHISharp
         }
 
         public override bool CanRead => true;
+
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            var timestamp = (long)reader.Value;
-            var dto = Epoch.AddMilliseconds(timestamp);
+            DateTimeOffset dto;
+            if (reader.Value is DateTime)
+            {
+                dto = new DateTimeOffset((DateTime)reader.Value);
+            }
+            else
+            {
+                var timestamp = (long)reader.Value;
+                dto = Epoch.AddMilliseconds(timestamp);
+            }
 
             if (objectType == typeof(DateTimeOffset))
                 return dto;
@@ -32,14 +37,15 @@ namespace Piksel.SMHISharp
         }
 
         public override bool CanWrite => true;
+
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             DateTimeOffset dto;
-            if(value is DateTime)
+            if (value is DateTime)
             {
                 dto = new DateTimeOffset(((DateTime)value));
             }
-            else if(value is DateTimeOffset)
+            else if (value is DateTimeOffset)
             {
                 dto = (DateTimeOffset)value;
             }
@@ -49,6 +55,5 @@ namespace Piksel.SMHISharp
             }
             writer.WriteValue((dto - Epoch).TotalMilliseconds);
         }
-
     }
 }

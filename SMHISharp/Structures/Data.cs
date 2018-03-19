@@ -2,17 +2,16 @@
 
 namespace Piksel.SMHISharp.Structures
 {
-    public class Data: ObjectBase
+    public class Data : ObjectBase
     {
-
     }
 
-    internal class DataResult: ResultBase
+    internal class DataResult : ResultBase
     {
-        Parameter Parameter { get; set; }
-        Station Station { get; set; }
-        PeriodResult Period { get; set; }
-        Position Position { get; set; }
+        private Parameter Parameter { get; set; }
+        private Station Station { get; set; }
+        private PeriodResult Period { get; set; }
+        private Position Position { get; set; }
 
         [JsonProperty(PropertyName = "Value")]
         public DataPoint[] Values { get; set; }

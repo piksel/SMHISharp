@@ -17,8 +17,9 @@ namespace Piksel.SMHISharp
             public float[] values { get; set; }
         }
 
-        float? GetParam(string parameter) => Parameters.FirstOrDefault(p => p.name == parameter)?.values.FirstOrDefault();
-        int? GetParamInt(string parameter)
+        private float? GetParam(string parameter) => Parameters.FirstOrDefault(p => p.name == parameter)?.values.FirstOrDefault();
+
+        private int? GetParamInt(string parameter)
         {
             var fp = GetParam(parameter);
             if (fp.HasValue)
@@ -55,8 +56,6 @@ namespace Piksel.SMHISharp
         public int? PrecipitationSort => GetParamInt("prsort");
         public int? PrecipitationFrozen => GetParamInt("spp");
         public int? WeatherSymbol => GetParamInt("Wsymb");
-
-
 
         /*
 t	    C	    hl	    2	Air temperature	                    Decimal number, one decimal

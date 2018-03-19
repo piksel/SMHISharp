@@ -10,6 +10,5 @@
         public const string XmlType = "application/xml";
         public const string AtomType = "application/atom+xml";
         public const string ISO19139Type = "application/vnd.iso.19139+xml";
-
     }
 }

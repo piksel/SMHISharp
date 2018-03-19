@@ -8,6 +8,5 @@ namespace Piksel.SMHISharp
         public DateTime ReferenceTime { get; set; }
         public Geometry Geometry { get; set; }
         public TimeSeries[] TimeSeries { get; set; }
-
     }
 }
